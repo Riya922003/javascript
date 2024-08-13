@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Rohan Gautam">
-
     <title>INTERNET AND WEB PROGRAMMING LAB PROGRAMS - 2</title>
-
     <style>
         body {
             display: flex;
@@ -47,15 +45,54 @@
         li a:hover {
             color: #007BFF;
         }
+        .dropdown {
+            position: relative;
+           
+            width:100%;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 10px;
+            top: 100%;
+            left: 0;
+        }
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown:hover .dropbtn {
+            background-color: #007BFF;
+            color: white;
+           
+        }
     </style>
 </head>
-
 <body>
     <main>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="question1.html">Question-1</a></li>
-            <li><a href="question2.html">Question-2</a></li>
+            <li>Question 2
+                <ul>
+                    <li a href="new.html">Javascript array using array literal</li>
+                    <li a href="new3.html">javascript array using array constructor </li>
+                    <li a href="new2.html">javascript array using new keyword</li>
+                </ul>
+            </li>
+            </li>
         </ul>
     </main>
 </body>

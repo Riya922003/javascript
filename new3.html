@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Ticket Reservation - Array Constructor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin: 10px 0 5px;
+        }
+
+        input, select, button {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        #output {
+            margin-top: 20px;
+        }
+
+        #ticketList {
+            list-style: none;
+            padding: 0;
+        }
+
+        #ticketList li {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            margin-bottom: 5px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Railway Ticket Reservation</h1>
+        <form id="reservationForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+
+            <label for="train">Train:</label>
+            <select id="train" required>
+                <option value="Train A">Train A</option>
+                <option value="Train B">Train B</option>
+                <option value="Train C">Train C</option>
+            </select>
+
+            <label for="seats">Number of Seats:</label>
+            <input type="number" id="seats" min="1" required>
+
+            <button type="submit">Book Ticket</button>
+        </form>
+
+        <div id="output">
+            <h2>Booked Tickets</h2>
+            <ul id="ticketList"></ul>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('reservationForm');
+            const ticketList = document.getElementById('ticketList');
+        
+            // Array initialization method 2: Array constructor
+            const bookings = new Array();
+        
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+        
+                const name = document.getElementById('name').value;
+                const train = document.getElementById('train').value;
+                const seats = parseInt(document.getElementById('seats').value, 10);
+        
+                const booking = { name, train, seats };
+                bookings.push(booking);
+        
+                displayBookings();
+            });
+        
+            function displayBookings() {
+                ticketList.innerHTML = '';
+        
+                bookings.forEach((booking) => {
+                    const li = document.createElement('li');
+                    li.textContent = `Name: ${booking.name}, Train: ${booking.train}, Seats: ${booking.seats}`;
+                    ticketList.appendChild(li);
+                });
+            }
+        });
+        
+    </script>
+</body>
+</html>
